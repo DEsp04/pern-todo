@@ -3,7 +3,7 @@ const todoRouter = Router();
 const todoControllers = require("../controllers/index");
 
 //Routes
-
+//Restful API with Postgres
 
 //create a todo
 todoRouter.post(
