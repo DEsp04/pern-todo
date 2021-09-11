@@ -23,7 +23,9 @@ todoRouter.get("/todos/:id",
 );
 
 //update a todo
-
+todoRouter.put("/todos/:id",
+  todoControllers.updateTodo
+);
 
 //delete a todo
 
