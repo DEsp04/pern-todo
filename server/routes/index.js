@@ -28,7 +28,9 @@ todoRouter.put("/todos/:id",
 );
 
 //delete a todo
-
+todoRouter.delete("/todos/:id",
+  todoControllers.deleteTodo
+);
 
 
 module.exports = todoRouter;
