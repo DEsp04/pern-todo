@@ -13,7 +13,8 @@ todoRouter.post(
 
 //get all todos
 todoRouter.get(
-  "/todos"
+  "/todos",
+  todoControllers.getTodo
 );
 
 //get a todo
