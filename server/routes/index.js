@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router, application } = require("express");
 const todoRouter = Router();
 const todoControllers = require("../controllers/index");
 
@@ -14,11 +14,13 @@ todoRouter.post(
 //get all todos
 todoRouter.get(
   "/todos",
-  todoControllers.getTodo
+  todoControllers.getAllTodo
 );
 
 //get a todo
-
+todoRouter.get("/todos/:id",
+  todoControllers.getTodo
+);
 
 //update a todo
 

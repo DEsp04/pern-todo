@@ -1,5 +1,7 @@
 const pool = require("../db/index");
 
+
+//create a todo
 const createTodo = async (req, res) => {
   try {
     const { description } = req.body;
@@ -14,7 +16,9 @@ const createTodo = async (req, res) => {
   }
 };
 
-const getTodo = async (req, res) => {
+
+//get all todos
+const getAllTodo = async (req, res) => {
   try {
     const allTodos = await pool.query("SELECT * FROM todo");
     res.json(allTodos.rows)
@@ -25,7 +29,23 @@ const getTodo = async (req, res) => {
 };
 
 
+//get a todo
+const getTodo = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [id])
+
+    res.json(todo.rows[0]) 
+  } catch (err) {
+    console.error(err.message);
+  }
+
+}
+
+
+
 module.exports = {
   createTodo,
-  getTodo,
+  getAllTodo,
+  getTodo
 }
