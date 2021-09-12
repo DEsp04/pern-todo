@@ -17,8 +17,12 @@ function InputTodo() {
         body: JSON.stringify(body)
         
       })
+    
+      // console.log(response)
 
-      console.log(response)
+      //when response has been sent, it will refresh the page and show changes
+      window.location = "/";
+
     } catch (err) {
       console.error(err.message)
     }
