@@ -16,7 +16,7 @@ function EditTodo({ todo }) {
         body: JSON.stringify(body)
       }
       )
-
+      //help refresh the page
       window.location = "/"
     } catch (error) {
       console.error(error.message)
@@ -33,6 +33,9 @@ function EditTodo({ todo }) {
         data-toggle="modal"
         //this data-target has to have an unique id so each edit field has the value corresponding to the item
         data-target={`#id${todo.todo_id}`}
+        onClick={
+          () =>setDescription(todo.description)
+        }
       >
         Edit
       </button>
@@ -45,7 +48,17 @@ function EditTodo({ todo }) {
             {/* //Modal Header */}
             <div className="modal-header">
               <h4 className="modal-title">Edit Todo</h4>
-              <button type="button" className="close" data-dismiss="modal">&times;</button>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                //make value back to item value when closing and opening modal
+                onClick={
+                  () =>setDescription(todo.description)
+                }
+              >
+                &times;
+              </button>
             </div>
 
             {/* <!-- Modal body --> */}
@@ -74,7 +87,13 @@ function EditTodo({ todo }) {
                 Edit
               </button>
 
-              <button type="button" className="btn btn-danger" data-dismiss="modal">
+              <button
+                type="button"
+                className="btn btn-danger" data-dismiss="modal"
+                onClick={
+                  () =>setDescription(todo.description)
+                }
+              >
                 Close
               </button>
             </div>
